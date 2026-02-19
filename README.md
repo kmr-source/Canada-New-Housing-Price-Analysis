@@ -1,4 +1,4 @@
-# Canada Housing Data Explorer Dashboard
+# CanHome Analytics
 
 A dashboard providing insights into Canada's housing market trends using the National Housing Index (NHI). This project visualizes housing price dynamics across provinces, regions, and cities, helping analysts, policymakers, and homebuyers understand affordability, growth, and market shifts.
 
