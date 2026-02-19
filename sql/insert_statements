@@ -1,0 +1,89 @@
+/*CREATE DATABASE canadaHousing;
+TABLES: */
+
+
+/*insert these values. */
+INSERT INTO geographic_levels (level_name) VALUES
+('Country'),
+('Economic Region'),
+('Province'),
+('CMA');
+
+/* insert country */ 
+INSERT INTO geography (geo_name, level_id, parent_id)
+VALUES ('Canada', 1, NULL);
+
+/* Insert Province */ 
+INSERT INTO geography (geo_name, level_id, parent_id) VALUES
+('Alberta', 3, 1),
+('British Columbia', 3, 1),
+('Manitoba', 3, 1),
+('New Brunswick', 3, 1),
+('Newfoundland and Labrador', 3, 1),
+('Nova Scotia', 3, 1),
+('Ontario', 3, 1),
+('Prince Edward Island', 3, 1),
+('Quebec', 3, 1),
+('Saskatchewan', 3, 1),
+('Northwest Territories', 3, 1),
+('Nunavut', 3, 1),
+('Yukon', 3, 1);
+
+
+/* insert Economic Regions */ 
+
+-- Newfoundland and Labrador Economic Regions
+INSERT INTO geography (geo_name, level_id, parent_id)
+SELECT 'Avalon Peninsula (ER 1010)', 2, geo_id FROM geography WHERE geo_name='Newfoundland and Labrador';
+
+INSERT INTO geography (geo_name, level_id, parent_id)
+SELECT 'South Coast–Burin Peninsula & Notre Dame–Central Bonavista Bay (ER 1020/1040)', 2, geo_id 
+FROM geography WHERE geo_name='Newfoundland and Labrador';
+
+INSERT INTO geography (geo_name, level_id, parent_id)
+SELECT 'West Coast–Northern Peninsula–Labrador (ER 1030)', 2, geo_id FROM geography WHERE geo_name='Newfoundland and Labrador';
+
+-- Prince Edward Island (single ER)
+INSERT INTO geography (geo_name, level_id, parent_id)
+SELECT 'Prince Edward Island ER (ER 1110)', 2, geo_id FROM geography WHERE geo_name='Prince Edward Island';
+
+-- Nova Scotia Economic Regions
+INSERT INTO geography (geo_name, level_id, parent_id)
+SELECT 'Cape Breton (ER 1210)', 2, geo_id FROM geography WHERE geo_name='Nova Scotia';
+
+INSERT INTO geography (geo_name, level_id, parent_id)
+SELECT 'North Shore (ER 1220)', 2, geo_id FROM geography WHERE geo_name='Nova Scotia';
+
+INSERT INTO geography (geo_name, level_id, parent_id)
+SELECT 'Annapolis Valley (ER 1230)', 2, geo_id FROM geography WHERE geo_name='Nova Scotia';
+
+INSERT INTO geography (geo_name, level_id, parent_id)
+SELECT 'Southern (ER 1240)', 2, geo_id FROM geography WHERE geo_name='Nova Scotia';
+
+INSERT INTO geography (geo_name, level_id, parent_id)
+SELECT 'Halifax (ER 1250)', 2, geo_id FROM geography WHERE geo_name='Nova Scotia';
+
+-- New Brunswick Economic Regions
+INSERT INTO geography (geo_name, level_id, parent_id)
+SELECT 'Campbellton–Miramichi (ER 1310)', 2, geo_id FROM geography WHERE geo_name='New Brunswick';
+
+INSERT INTO geography (geo_name, level_id, parent_id)
+SELECT 'Moncton–Richibucto (ER 1320)', 2, geo_id FROM geography WHERE geo_name='New Brunswick';
+
+INSERT INTO geography (geo_name, level_id, parent_id)
+SELECT 'Saint John–St. Stephen (ER 1330)', 2, geo_id FROM geography WHERE geo_name='New Brunswick';
+
+INSERT INTO geography (geo_name, level_id, parent_id)
+SELECT 'Fredericton–Oromocto (ER 1340)', 2, geo_id FROM geography WHERE geo_name='New Brunswick';
+
+/* insert components */
+INSERT INTO components (component_name) VALUES
+('Total (house and land)'),
+('House only'),
+('Land only');
+
+/* Add indexes for performance:*/
+CREATE INDEX idx_geo ON housing_price_index(geo_id);
+CREATE INDEX idx_date ON housing_price_index(date_id);
+CREATE INDEX idx_component ON housing_price_index(component_id);
+

@@ -1,0 +1,77 @@
+/*CREATE DATABASE canadaHousing;
+TABLES: */
+
+// Table for provinces that are in Canada 
+CREATE TABLE provinces (
+    province_id INT PRIMARY KEY AUTO_INCREMENT,
+    province_name VARCHAR(100) NOT NULL UNIQUE
+);
+
+/*Table for regions */
+CREATE TABLE regions (
+    region_id INT PRIMARY KEY AUTO_INCREMENT,
+    region_name VARCHAR(150) NOT NULL,
+    province_id INT,
+    FOREIGN KEY (province_id) REFERENCES provinces(province_id)
+);
+
+CREATE TABLE dates (
+    date_id INT PRIMARY KEY AUTO_INCREMENT,
+    full_date DATE NOT NULL UNIQUE,
+    year INT NOT NULL,
+    month INT NOT NULL
+);
+
+/* MAIN TABLE */
+CREATE TABLE housing_price_index (
+    index_id INT PRIMARY KEY AUTO_INCREMENT,
+    geo_id INT NOT NULL,
+    date_id INT NOT NULL,
+    component_id INT NOT NULL,
+    price_index DECIMAL(8,2) NOT NULL,
+    FOREIGN KEY (geo_id) REFERENCES geography(geo_id),
+    FOREIGN KEY (date_id) REFERENCES dates(date_id),
+    FOREIGN KEY (component_id) REFERENCES components(component_id)
+);
+
+
+
+
+CREATE TABLE geographic_levels (
+    level_id INT PRIMARY KEY AUTO_INCREMENT,
+    level_name VARCHAR(50) NOT NULL UNIQUE
+);
+
+/*insert these values. */
+INSERT INTO geographic_levels (level_name) VALUES
+('Country'),
+('Economic Region'),
+('Province'),
+('CMA');
+
+
+CREATE TABLE geography (
+    geo_id INT PRIMARY KEY AUTO_INCREMENT,
+    geo_name VARCHAR(150) NOT NULL,
+    level_id INT NOT NULL,
+    parent_id INT NULL,
+    FOREIGN KEY (level_id) REFERENCES geographic_levels(level_id),
+    FOREIGN KEY (parent_id) REFERENCES geography(geo_id)
+);
+
+CREATE TABLE components (
+    component_id INT PRIMARY KEY AUTO_INCREMENT,
+    component_name VARCHAR(100) NOT NULL UNIQUE
+);
+
+/* insert components */
+INSERT INTO components (component_name) VALUES
+('Total (house and land)'),
+('House only'),
+('Land only');
+
+/* Add indexes for performance:*/
+CREATE INDEX idx_geo ON housing_price_index(geo_id);
+CREATE INDEX idx_date ON housing_price_index(date_id);
+CREATE INDEX idx_component ON housing_price_index(component_id);
+
