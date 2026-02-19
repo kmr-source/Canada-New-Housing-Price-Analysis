@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Canada Housing Analytics Dashboard</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --primary: #2563eb;
+      --secondary: #64748b;
+      --bg: #f8fafc;
+      --code-bg: #0f172a;
+      --text-main: #1e293b;
+      --border: #e2e8f0;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      background-color: var(--bg);
+      color: var(--text-main);
+      line-height: 1.6;
+    }
+
+    header {
+      background: rgba(248, 248, 248, 0.823);
+      padding: 3rem 1rem;
+      text-align: center;
+      border-bottom: 1px solid var(--border);
+      box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.2rem;
+      font-weight: 600;
+      letter-spacing: -0.05em;
+      background: linear-gradient(90deg, #07090e, #7c3aed);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    header p {
+      color: var(--secondary);
+      margin-top: 5px;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 3rem auto;
+      padding: 0 20px 50px;
+    }
+
+    /* KPI GRID */
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      margin-bottom: 40px;
+    }
+
+    .kpi-card {
+      background: rgb(255, 255, 255);
+      padding: 20px;
+      border-radius: 14px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+      transition: 0.2s ease;
+
+      border: 2px solid #2f496b; 
+    }
+
+    .kpi-card:hover {
+      transform: translateY(-4px);
+      border-color: #5b1c88d4; 
+    }
+
+    .kpi-title {
+      font-size: 0.85rem;
+      color: var(--secondary);
+      margin-bottom: 8px;
+    }
+
+    .kpi-value {
+      font-size: 1.9rem;
+      font-weight: 600;
+    }
+
+    /* DASHBOARD GRID */
+    .dashboard-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+      gap: 25px;
+    }
+
+    .chart-card {
+      background: white;
+      padding: 20px;
+      border-radius: 16px;
+      box-shadow: 0 12px 30px rgba(102, 12, 12, 0.1), 0 4px 10px rgba(0,0,0,0.05);
+      transition: 0.2s ease;
+      border: 2px solid #7e92ac; 
+    }
+
+    .chart-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .chart-card h3 {
+      margin-bottom: 12px;
+    }
+
+    .chart-img {
+      width: 100%;
+      border-radius: 8px;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>
+    <img src="https://flagcdn.com/ca.svg" width="28" style="vertical-align:middle; margin-right:8px;">
+    Canada Housing Data Explorer
+  </h1>
+  <p>SQL Extraction & Statistical Visualization Pipeline</p>
+</header>
+
+<div class="container">
+
+  <!-- KPI ROW -->
+  <div class="kpi-grid">
+    <div class="kpi-card">
+      <div class="kpi-title">Latest National Index</div>
+      <div class="kpi-value"> 79.85</div>
+    </div>
+
+    <div class="kpi-card">
+      <div class="kpi-title">Fastest Growing Province</div>
+      <div class="kpi-value">Manitoba</div>
+    </div>
+
+    <div class="kpi-card">
+      <div class="kpi-title">National YOY Growth %</div>
+      <div class="kpi-value">  1.19% </div>
+    </div>
+
+    <div class="kpi-card">
+      <div class="kpi-title">Data Coverage</div>
+      <div class="kpi-value">1981–2025</div>
+    </div>
+  </div>
+
+  <!-- DASHBOARD GRID -->
+  <div class="dashboard-grid">
+
+    <div class="chart-card">
+      <h3>🇨🇦 National Housing Trend</h3>
+      <img src="images/Canadian_Housing_Price_Index_Trends_by_component.png" class="chart-img">
+    </div>
+
+    <div class="chart-card">
+      <h3>🚀 Provincial Growth Ranking</h3>
+      <img src="images/provincial_growth.png" class="chart-img">
+    </div>
+
+    <div class="chart-card">
+      <h3>📊 Component Trends</h3>
+      <img src="images/component_trend.png" class="chart-img">
+    </div>
+
+    <div class="chart-card">
+      <h3>🏆 Top 5 Most affordable Cities to Live</h3>
+      <img src="images/most_affordable.png" class="chart-img">
+    </div>
+
+    <div class="chart-card">
+      <h3>🌡️ Price Heatmap</h3>
+      <img src="images/heatmap.png" class="chart-img">
+    </div>
+
+    <div class="chart-card">
+      <h3>🏔 Provincial Average Index</h3>
+      <img src="images/provincial_avg.png" class="chart-img">
+    </div>
+
+    <div class="chart-card">
+      <h3>📅 National Average Over Time</h3>
+      <img src="images/nataional_avg_time.png" class="chart-img">
+    </div>
+
+    <div class="chart-card">
+      <h3>📈 City-Level Average Index</h3>
+      <img src="images/city_avg.png" class="chart-img">
+    </div>
+
+    <div class="chart-card">
+      <h3>🏙️ Top 5 Fastest-Growing Provinces</h3>
+      <img src="images/top_growth_province.png" class="chart-img">
+    </div>
+
+    <!-- New Chart #10 -->
+    <div class="chart-card">
+      <h3>⚡ Top 7 Fastest-Growing Regions (Last 3 Years)</h3>
+      <img src="images/top_growth_regions_3y.png" class="chart-img">
+    </div>
+
+  </div>
+
+</div>
+
+</body>
+</html>
