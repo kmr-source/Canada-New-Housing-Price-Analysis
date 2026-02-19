@@ -1,16 +1,28 @@
-# Canada-New-Housing-Price-Analysis
-New house 
+# Canada Housing Data Explorer Dashboard
 
-Canada Housing Data Explorer Dashboard
+An interactive dashboard providing insights into Canada's housing market trends using the National Housing Index (NHI). This project visualizes housing price dynamics across provinces, regions, and cities, helping analysts, policymakers, and homebuyers understand affordability, growth, and market shifts.
 
-This interactive dashboard provides a comprehensive overview of Canada’s housing market trends using the National Housing Index (NHI). It aggregates and visualizes housing data from 1981 to 2025, highlighting key insights such as:
+---
 
-National and Provincial Price Indices – track the latest housing affordability and growth trends.
+## 📊 Features
 
-Top and Bottom Performing Provinces and Regions – identify fastest-growing and most affordable areas.
+- **National & Provincial Indices:** Track the latest housing price indices and growth trends.  
+- **Top & Bottom Performing Regions:** Identify fastest-growing and most affordable areas.  
+- **Year-over-Year Growth:** Monitor short- and long-term changes in the housing market.  
+- **City-Level Analysis & Heatmaps:** Visualize regional disparities and affordability trends.  
+- **Interactive KPI Cards:** Quickly highlight key metrics like latest national index, fastest-growing provinces, and coverage period.  
+- **Responsive Dashboard Layout:** Designed with clean HTML/CSS grid for smooth navigation and readability.
 
-Year-over-Year (YOY) Growth – monitor short- and long-term market changes.
+---
 
-City-Level Analyses and Heatmaps – visualize regional disparities in housing prices.
+## 🛠 Technology Stack
 
-Built with SQL for data extraction, Python (Pandas, Matplotlib, Seaborn) for analysis and plotting, and HTML/CSS for a modern, responsive dashboard, this project is designed to help analysts, policymakers, and homebuyers understand Canada’s housing dynamics at a glance.
+- **Database & SQL:** Extract and aggregate housing price index data.  
+- **Python:** Data manipulation and analysis using Pandas; plotting with Matplotlib & Seaborn.  
+- **HTML/CSS:** Responsive dashboard with KPI cards, chart cards, and hover effects.  
+- **Visualization:** Line charts, bar charts, heatmaps for clear data storytelling.
+
+---
+
+## 📂 Project Structure
+
