@@ -2,6 +2,7 @@
 
 An interactive dashboard providing insights into Canada's housing market trends using the National Housing Index (NHI). This project visualizes housing price dynamics across provinces, regions, and cities, helping analysts, policymakers, and homebuyers understand affordability, growth, and market shifts.
 
+DASHBOARD LINK : https://kmr-source.github.io/Portfolio/dashboard.html
 ---
 
 ## 📊 Features
